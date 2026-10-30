@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RutaU Magangué | Movilidad universitaria rural</title>
+  <meta name="description" content="RutaU Magangué: sistema inteligente de movilidad universitaria rural que conecta estudiantes, comunidades y oportunidades con el Centro Tutorial de la Universidad de Cartagena.">
+  <meta name="author" content="Universidad de Cartagena — Administración y Emprendimiento, CIPA ADyEM">
+  <meta name="theme-color" content="#004B87">
+  <meta property="og:title" content="RutaU Magangué">
+  <meta property="og:description" content="Conectando estudiantes, comunidades y oportunidades.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-bus" viewBox="0 0 24 24">
+      <path d="M4 17h16" /><path d="M6 17V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v11" />
+      <path d="M6 11h12" /><path d="M9 7h6" />
+      <circle cx="8" cy="17" r="2" /><circle cx="16" cy="17" r="2" />
+    </symbol>
+    <symbol id="i-route" viewBox="0 0 24 24">
+      <circle cx="6" cy="19" r="3" /><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /><circle cx="18" cy="5" r="3" />
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" />
+    </symbol>
+    <symbol id="i-clock-alert" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" /><path d="M12 7v5" /><path d="M12 16h.01" />
+    </symbol>
+    <symbol id="i-smartphone" viewBox="0 0 24 24">
+      <rect x="6" y="2" width="12" height="20" rx="3" /><path d="M11 18h2" />
+    </symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24">
+      <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" /><path d="M10 21h4" />
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z" /><circle cx="12" cy="10" r="2.5" />
+    </symbol>
+    <symbol id="i-users" viewBox="0 0 24 24">
+      <circle cx="9" cy="7" r="4" /><path d="M2 21v-2a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v2" />
+      <path d="M16 3.5a4 4 0 0 1 0 7.5" /><path d="M22 21v-2a6 6 0 0 0-4-5.7" />
+    </symbol>
+    <symbol id="i-graduation" viewBox="0 0 24 24">
+      <path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" /><path d="M22 10v6" />
+    </symbol>
+    <symbol id="i-book" viewBox="0 0 24 24">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
+    </symbol>
+    <symbol id="i-steering" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="2.5" />
+      <path d="M12 14.5V21" /><path d="M4.2 9.5 9.8 12" /><path d="M19.8 9.5 14.2 12" />
+    </symbol>
+    <symbol id="i-building" viewBox="0 0 24 24">
+      <path d="M3 21h18" /><path d="M5 21V5l7-3 7 3v16" /><path d="M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01" />
+    </symbol>
+    <symbol id="i-map" viewBox="0 0 24 24">
+      <path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z" /><path d="M9 4v14" /><path d="M15 6v14" />
+    </symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" />
+    </symbol>
+    <symbol id="i-home" viewBox="0 0 24 24">
+      <path d="M3 10.5 12 3l9 7.5" /><path d="M5 9v12h14V9" /><path d="M9 21v-6h6v6" />
+    </symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" />
+      <rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" />
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
+    </symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24">
+      <path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5Z" />
+    </symbol>
+    <symbol id="i-code" viewBox="0 0 24 24">
+      <path d="m16 18 6-6-6-6" /><path d="m8 6-6 6 6 6" />
+    </symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24">
+      <path d="M5 21V4" /><path d="M5 4h11l-1.5 3L16 10H5" />
+    </symbol>
+    <symbol id="i-link" viewBox="0 0 24 24">
+      <path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.1 1.1" />
+      <path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1.1" />
+    </symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24">
+      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z" />
+      <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z" />
+      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+    </symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24">
+      <path d="M3 3v18h18" /><path d="m7 15 4-4 3 3 6-6" />
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="M20 6 9 17l-5-5" />
+    </symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" /><path d="m8.5 12 2.5 2.5 4.5-5" />
+    </symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24">
+      <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+    </symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24">
+      <path d="M12 19V5" /><path d="m6 11 6-6 6 6" />
+    </symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" />
+    </symbol>
+    <symbol id="i-banknote" viewBox="0 0 24 24">
+      <rect x="2" y="6" width="20" height="12" rx="2" /><circle cx="12" cy="12" r="3" /><path d="M6 12h.01M18 12h.01" />
+    </symbol>
+    <symbol id="i-network" viewBox="0 0 24 24">
+      <circle cx="12" cy="5" r="2.5" /><circle cx="5" cy="19" r="2.5" /><circle cx="19" cy="19" r="2.5" />
+      <path d="M12 7.5V12M10.5 13.5 6.5 17M13.5 13.5l4 3.5" />
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" />
+    </symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24">
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
+    </symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24">
+      <path d="m12 2 9 5-9 5-9-5 9-5Z" /><path d="m3 12 9 5 9-5" /><path d="m3 17 9 5 9-5" />
+    </symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24">
+      <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" />
+      <path d="M12 9v4M12 17h.01" />
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24">
+      <path d="M21 12a9 9 0 1 1-2.6-6.4" /><path d="M21 3v6h-6" />
+    </symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" /><circle cx="12" cy="12" r="3" />
+    </symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24">
+      <path d="M5 12.5a10 10 0 0 1 14 0" /><path d="M8.5 16a5 5 0 0 1 7 0" /><path d="M12 19.5h.01" />
+    </symbol>
+  </svg>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="RutaU Magangué, ir al inicio">
+        <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-bus"></use></svg></span>
+        <span class="brand-text">RutaU<small>Magangué</small></span>
+      </a>
+
+      <nav class="nav" id="mainNav" aria-label="Navegación principal">
+        <a href="#desafio">El reto</a>
+        <a href="#propuesta">Propuesta</a>
+        <a href="#experiencia">La app</a>
+        <a href="#ruta">Hoja de ruta</a>
+        <a href="#impacto">Impacto</a>
+      </nav>
+
+      <a class="btn btn--sm header-cta" href="#experiencia">
+        Explorar la app
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+        <svg class="icon icon--menu" aria-hidden="true"><use href="#i-menu"></use></svg>
+        <svg class="icon icon--close" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <aside class="dot-rail" aria-label="Progreso de la página">
+    <a href="#hero" data-label="Inicio" aria-label="Inicio"></a>
+    <a href="#desafio" data-label="El reto" aria-label="El reto"></a>
+    <a href="#propuesta" data-label="Propuesta" aria-label="Propuesta"></a>
+    <a href="#experiencia" data-label="Experiencia" aria-label="Experiencia digital"></a>
+    <a href="#ruta" data-label="Hoja de ruta" aria-label="Hoja de ruta"></a>
+    <a href="#impacto" data-label="Impacto" aria-label="Impacto"></a>
+    <a href="#cierre" data-label="Cierre" aria-label="Cierre"></a>
+  </aside>
+
+  <main id="contenido">
+    <!-- ============ BLOQUE 1 · HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <span class="hero-blob hero-blob--blue" aria-hidden="true"></span>
+      <span class="hero-blob hero-blob--green" aria-hidden="true"></span>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Movilidad universitaria rural · Magangué, Bolívar
+          </span>
+
+          <h1 class="hero-title">
+            <span class="hero-title-top">RutaU</span>
+            <span class="hero-title-accent">Magangué</span>
+          </h1>
+
+          <p class="hero-tagline">
+            <svg class="icon" aria-hidden="true"><use href="#i-route"></use></svg>
+            Sistema inteligente de movilidad universitaria rural
+          </p>
+
+          <p class="hero-subtitle">Conectando estudiantes, comunidades y oportunidades.</p>
+
+          <div class="hero-badge">
+            <span class="hero-badge-icon">
+              <svg class="icon" aria-hidden="true"><use href="#i-graduation"></use></svg>
+            </span>
+            <p>Unir la educación superior con las zonas rurales mediante <strong>tecnología real.</strong></p>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#experiencia">
+              Explorar la ruta
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+            <a class="btn btn--ghost" href="#desafio">
+              <svg class="icon" aria-hidden="true"><use href="#i-smartphone"></use></svg>
+              Conocer el proyecto
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong><span data-count="4">4</span></strong>
+              <span>módulos integrados</span>
+            </div>
+            <div class="hero-stat">
+              <strong><span data-count="7">7</span></strong>
+              <span>hitos de implementación</span>
+            </div>
+            <div class="hero-stat">
+              <strong><span data-count="100">100</span><small>%</small></strong>
+              <span>gratuito para el estudiante</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <span class="hero-orbit" aria-hidden="true"></span>
+
+          <div class="hero-float-card card-eta">
+            <span class="float-icon float-icon--orange">
+              <svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg>
+            </span>
+            <div><span>Próxima salida</span><strong>6:10 a. m.</strong></div>
+          </div>
+
+          <div class="hero-pill-free">
+            <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+            100% gratuito
+          </div>
+
+          <svg class="hero-art" viewBox="0 0 640 570" role="img" aria-labelledby="heroArtTitle heroArtDesc">
+            <title id="heroArtTitle">Ilustración de una buseta conectando los corregimientos rurales con el campus universitario</title>
+            <desc id="heroArtDesc">Un mapa ilustrado muestra una ruta entre casas rurales y el Centro Tutorial de la Universidad de Cartagena, con una buseta recorriendo el camino.</desc>
+            <defs>
+              <linearGradient id="artBg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FFFFFF" />
+                <stop offset="0.55" stop-color="#F1F8FE" />
+                <stop offset="1" stop-color="#E6F4FF" />
+              </linearGradient>
+              <linearGradient id="routeGrad" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#10B981" />
+                <stop offset="0.55" stop-color="#0A83B8" />
+                <stop offset="1" stop-color="#004B87" />
+              </linearGradient>
+              <linearGradient id="roofGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FB923C" />
+                <stop offset="1" stop-color="#F97316" />
+              </linearGradient>
+              <linearGradient id="riverGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#BFE7FA" />
+                <stop offset="1" stop-color="#8FD4F4" />
+              </linearGradient>
+              <pattern id="artDots" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.15" fill="#004B87" opacity="0.14" />
+              </pattern>
+              <clipPath id="artClip">
+                <rect x="24" y="24" width="592" height="522" rx="46" />
+              </clipPath>
+              <filter id="artShadow" x="-20%" y="-20%" width="140%" height="150%">
+                <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#004B87" flood-opacity="0.16" />
+              </filter>
+              <filter id="busShadow" x="-60%" y="-60%" width="220%" height="220%">
+                <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#00243F" flood-opacity="0.35" />
+              </filter>
+            </defs>
+
+            <g filter="url(#artShadow)">
+              <rect x="24" y="24" width="592" height="522" rx="46" fill="url(#artBg)" stroke="#D7E5F2" stroke-width="2" />
+            </g>
+            <rect x="24" y="24" width="592" height="522" rx="46" fill="url(#artDots)" opacity="0.8" />
+
+            <g clip-path="url(#artClip)">
+              <path d="M520 -10C500 90 610 150 586 282s-50 198-10 318" fill="none" stroke="url(#riverGrad)" stroke-width="38" opacity="0.55" stroke-linecap="round" />
+              <path d="M520 -10C500 90 610 150 586 282" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.45" />
+
+              <path d="M40 300c40-30 94-36 140-12 22 11 34 32 22 52-34 54-150 52-180 6-12-18-2-33 18-46Z" fill="#DDF7E9" />
+              <path d="M44 436c56-26 128-31 176-4 30 17 36 50 4 67-52 28-148 22-184-12-16-15-12-39 4-51Z" fill="#C9F2DF" />
+              <path d="M52 466c46-18 105-20 146-2M64 486c40-14 92-16 128-3M74 447c40-16 88-18 120-4" fill="none" stroke="#10B981" stroke-width="2" opacity="0.28" />
+
+              <path d="M30 505c84-48 150-52 226-38 82 15 150 6 232-32 60-28 110-36 150-30" fill="none" stroke="#E1EBF4" stroke-width="30" stroke-linecap="round" />
+              <path d="M30 505c84-48 150-52 226-38 82 15 150 6 232-32 60-28 110-36 150-30" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.7" stroke-dasharray="8 12" />
+
+              <g opacity="0.9" fill="#FFFFFF">
+                <ellipse cx="112" cy="118" rx="42" ry="18" />
+                <ellipse cx="140" cy="107" rx="26" ry="15" />
+                <ellipse cx="84" cy="108" rx="20" ry="12" />
+              </g>
+
+              <g class="art-tree" transform="translate(58,382)">
+                <rect x="-3" y="22" width="6" height="22" rx="3" fill="#8C6A4A" />
+                <circle cx="0" cy="11" r="17" fill="#34D399" />
+                <circle cx="-11" cy="17" r="11" fill="#10B981" />
+                <circle cx="11" cy="17" r="10" fill="#6EE7B7" />
+              </g>
+              <g class="art-tree" transform="translate(232,447)">
+                <rect x="-3" y="20" width="6" height="20" rx="3" fill="#8C6A4A" />
+                <circle cx="0" cy="10" r="16" fill="#34D399" />
+                <circle cx="-10" cy="16" r="10" fill="#10B981" />
+              </g>
+              <g class="art-tree" transform="translate(286,391)">
+                <rect x="-2" y="15" width="4" height="16" rx="2" fill="#8C6A4A" />
+                <circle cx="0" cy="7" r="12" fill="#6EE7B7" />
+                <circle cx="9" cy="12" r="8" fill="#34D399" />
+              </g>
+
+              <g class="art-house" transform="translate(82,404)">
+                <rect x="0" y="16" width="50" height="36" rx="4" fill="#FFFFFF" stroke="#D8E4EF" />
+                <path d="M-4 18 25 -2l29 20Z" fill="url(#roofGrad)" />
+                <rect x="9" y="29" width="10" height="10" rx="2" fill="#BFE7FA" />
+                <rect x="31" y="29" width="11" height="23" rx="2" fill="#004B87" opacity="0.8" />
+              </g>
+              <g class="art-house" transform="translate(152,433)">
+                <rect x="0" y="12" width="42" height="29" rx="4" fill="#FFFFFF" stroke="#D8E4EF" />
+                <path d="M-4 14 21 -3l25 17Z" fill="#F59E0B" />
+                <rect x="8" y="23" width="9" height="9" rx="2" fill="#BFE7FA" />
+                <rect x="25" y="23" width="9" height="18" rx="2" fill="#004B87" opacity="0.75" />
+              </g>
+              <g class="art-house" transform="translate(196,387)">
+                <rect x="0" y="12" width="36" height="26" rx="4" fill="#FFFFFF" stroke="#D8E4EF" />
+                <path d="M-4 14 18 -2l22 16Z" fill="url(#roofGrad)" />
+                <rect x="7" y="22" width="8" height="8" rx="2" fill="#BFE7FA" />
+                <rect x="21" y="22" width="8" height="16" rx="2" fill="#004B87" opacity="0.75" />
+              </g>
+
+              <g transform="translate(410,108)">
+                <ellipse cx="86" cy="130" rx="106" ry="16" fill="#D9EAF7" opacity="0.8" />
+                <rect x="22" y="52" width="100" height="78" rx="5" fill="#FFFFFF" stroke="#C4D9E9" />
+                <rect x="22" y="52" width="100" height="11" rx="5" fill="#004B87" />
+                <rect x="55" y="24" width="34" height="28" rx="3" fill="#004B87" />
+                <circle cx="72" cy="18" r="9" fill="#10B981" />
+                <path d="M72 9V4" stroke="#004B87" stroke-width="2" stroke-linecap="round" />
+                <g fill="#CDE7F7">
+                  <rect x="32" y="73" width="15" height="18" rx="2" />
+                  <rect x="55" y="73" width="15" height="18" rx="2" />
+                  <rect x="78" y="73" width="15" height="18" rx="2" />
+                  <rect x="101" y="73" width="12" height="18" rx="2" />
+                </g>
+                <rect x="60" y="101" width="24" height="29" rx="3" fill="#004B87" opacity="0.85" />
+                <path d="M142 52V14" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M142 14h27l-6 8 6 8h-27Z" fill="#F97316" />
+                <g transform="translate(150,120)">
+                  <rect x="-3" y="18" width="6" height="20" rx="3" fill="#8C6A4A" />
+                  <circle cx="0" cy="9" r="15" fill="#34D399" />
+                  <circle cx="11" cy="15" r="9" fill="#10B981" />
+                </g>
+                <g transform="translate(16,124)">
+                  <rect x="-3" y="17" width="6" height="18" rx="3" fill="#8C6A4A" />
+                  <circle cx="0" cy="8" r="13" fill="#6EE7B7" />
+                </g>
+                <g class="art-signal" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" opacity="0.55">
+                  <path d="M160 85a13 13 0 0 1 13-13" />
+                  <path d="M160 95a23 23 0 0 1 23-23" />
+                  <path d="M160 75a3 3 0 0 1 3-3" />
+                </g>
+              </g>
+
+              <g transform="translate(70,330)">
+                <rect x="0" y="0" width="112" height="26" rx="13" fill="#FFFFFF" opacity="0.92" />
+                <circle cx="15" cy="13" r="4" fill="#F97316" />
+                <text x="26" y="17" font-family="Manrope, sans-serif" font-size="10.5" font-weight="800" fill="#004B87" letter-spacing="0.4">CORREGIMIENTOS</text>
+              </g>
+              <g transform="translate(440,263)">
+                <rect x="0" y="0" width="120" height="26" rx="13" fill="#FFFFFF" opacity="0.92" />
+                <circle cx="15" cy="13" r="4" fill="#10B981" />
+                <text x="26" y="17" font-family="Manrope, sans-serif" font-size="10.5" font-weight="800" fill="#004B87" letter-spacing="0.4">CAMPUS UC</text>
+              </g>
+
+              <path id="heroRoutePath" d="M150 362C190 400 232 406 272 376S334 306 384 282S454 260 512 236" fill="none" />
+              <path d="M150 362C190 400 232 406 272 376S334 306 384 282S454 260 512 236" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round" opacity="0.95" />
+              <path class="route-dash" d="M150 362C190 400 232 406 272 376S334 306 384 282S454 260 512 236" fill="none" stroke="url(#routeGrad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="13 14" />
+
+              <g transform="translate(150,362)">
+                <path d="M0-21c-11 0-19 8-19 18 0 13 19 27 19 27s19-14 19-27c0-10-8-18-19-18Z" fill="#F97316" stroke="#FFFFFF" stroke-width="3" />
+                <circle cx="0" cy="-3" r="6.5" fill="#FFFFFF" />
+                <circle cx="0" cy="-3" r="2.6" fill="#F97316" />
+              </g>
+              <g transform="translate(512,236)">
+                <path d="M0-21c-11 0-19 8-19 18 0 13 19 27 19 27s19-14 19-27c0-10-8-18-19-18Z" fill="#004B87" stroke="#FFFFFF" stroke-width="3" />
+                <path d="M-6-9h12v9h-12zM-8-9l8-5 8 5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" />
+                <rect x="-2" y="-4" width="4" height="4" fill="#FFFFFF" />
+              </g>
+
+              <g filter="url(#busShadow)">
+                <g class="art-bus">
+                  <rect x="-22" y="-14" width="44" height="27" rx="8" fill="#004B87" />
+                  <rect x="-18" y="-10" width="36" height="11" rx="4" fill="#DDF3FF" />
+                  <rect x="-22" y="5" width="44" height="4" fill="#10B981" />
+                  <circle cx="-12" cy="14" r="4.5" fill="#0B1F33" />
+                  <circle cx="12" cy="14" r="4.5" fill="#0B1F33" />
+                  <circle cx="-12" cy="14" r="1.7" fill="#CBD5E1" />
+                  <circle cx="12" cy="14" r="1.7" fill="#CBD5E1" />
+                  <rect x="18" y="-8" width="2.5" height="5" rx="1" fill="#FDE68A" />
+                  <animateMotion dur="15s" repeatCount="indefinite" rotate="auto">
+                    <mpath href="#heroRoutePath" />
+                  </animateMotion>
+                </g>
+              </g>
+
+              <circle r="4" fill="#10B981" opacity="0.9">
+                <animateMotion dur="15s" begin="-4s" repeatCount="indefinite">
+                  <mpath href="#heroRoutePath" />
+                </animateMotion>
+              </circle>
+              <circle r="3" fill="#F97316" opacity="0.8">
+                <animateMotion dur="15s" begin="-9s" repeatCount="indefinite">
+                  <mpath href="#heroRoutePath" />
+                </animateMotion>
+              </circle>
+            </g>
+
+            <rect x="24" y="24" width="592" height="522" rx="46" fill="none" stroke="#D7E5F2" stroke-width="2" />
+          </svg>
+
+          <div class="hero-float-card card-live">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <div><span>Ruta activa</span><strong>San Antonio → Campus UC</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <div class="marquee-group">
+            <span class="marquee-item">Corregimientos <svg class="icon"><use href="#i-bus"></use></svg></span>
+            <span class="marquee-item">Casco urbano <svg class="icon"><use href="#i-pin"></use></svg></span>
+            <span class="marquee-item">Campus universitario <svg class="icon"><use href="#i-graduation"></use></svg></span>
+            <span class="marquee-item">Comunidad <svg class="icon"><use href="#i-users"></use></svg></span>
+            <span class="marquee-item">Oportunidades <svg class="icon"><use href="#i-sparkle"></use></svg></span>
+          </div>
+          <div class="marquee-group">
+            <span class="marquee-item">Corregimientos <svg class="icon"><use href="#i-bus"></use></svg></span>
+            <span class="marquee-item">Casco urbano <svg class="icon"><use href="#i-pin"></use></svg></span>
+            <span class="marquee-item">Campus universitario <svg class="icon"><use href="#i-graduation"></use></svg></span>
+            <span class="marquee-item">Comunidad <svg class="icon"><use href="#i-users"></use></svg></span>
+            <span class="marquee-item">Oportunidades <svg class="icon"><use href="#i-sparkle"></use></svg></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 2 · DESAFÍO ============ -->
+    <section class="section section--tint challenge" id="desafio">
+      <span class="section-watermark" aria-hidden="true">01</span>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">01 · El desafío</span>
+          <h2 class="section-title">Del aislamiento rural a la <span class="text-gradient">oportunidad educativa</span></h2>
+          <p class="lead">La información de transporte está dispersa y el viaje hacia el Centro Tutorial de la Universidad de Cartagena se vuelve una incertidumbre diaria. RutaU convierte ese caos en una ruta clara.</p>
+        </div>
+
+        <div class="challenge-grid">
+          <article class="panel panel--problem reveal" style="--delay:.05s">
+            <span class="panel-watermark" aria-hidden="true"><svg class="icon"><use href="#i-clock-alert"></use></svg></span>
+            <span class="panel-label"><span class="dot dot--orange"></span> Hoy</span>
+            <span class="panel-icon panel-icon--orange">
+              <svg class="icon" aria-hidden="true"><use href="#i-clock-alert"></use></svg>
+            </span>
+            <h3>El desafío rural</h3>
+            <ul class="feature-list">
+              <li><span class="li-ico"><svg class="icon" aria-hidden="true"><use href="#i-alert"></use></svg></span> Información de transporte dispersa entre llamadas, mensajes y rumores.</li>
+              <li><span class="li-ico"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg></span> Largas esperas en la vía sin certeza de cuándo llegará la buseta.</li>
+              <li><span class="li-ico"><svg class="icon" aria-hidden="true"><use href="#i-map"></use></svg></span> Incertidumbre de horarios y rutas hacia el Centro Tutorial de la Universidad de Cartagena.</li>
+            </ul>
+            <p class="panel-quote">“El problema no es solo de transporte: es un problema de acceso y permanencia en la educación superior”.</p>
+          </article>
+
+          <div class="compare-arrow reveal" aria-hidden="true" style="--delay:.15s">
+            <span>
+              <svg class="icon"><use href="#i-arrow-right"></use></svg>
+            </span>
+          </div>
+
+          <article class="panel panel--solution reveal" style="--delay:.2s">
+            <span class="panel-watermark" aria-hidden="true"><svg class="icon"><use href="#i-smartphone"></use></svg></span>
+            <span class="panel-label"><span class="dot dot--green"></span> Con RutaU</span>
+            <span class="panel-icon panel-icon--green">
+              <svg class="icon" aria-hidden="true"><use href="#i-smartphone"></use></svg>
+            </span>
+            <h3>La solución digital</h3>
+            <ul class="feature-list">
+              <li><span class="li-ico"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg></span> Plataforma digital centralizada que organiza rutas, paradas y horarios.</li>
+              <li><span class="li-ico"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span> Conexión clara entre los corregimientos y el casco urbano de Magangué.</li>
+              <li><span class="li-ico"><svg class="icon" aria-hidden="true"><use href="#i-graduation"></use></svg></span> Un solo lugar para planear el viaje y llegar a tiempo al campus.</li>
+            </ul>
+            <div class="panel-tagline">
+              <svg class="icon" aria-hidden="true"><use href="#i-check-circle"></use></svg>
+              Del corregimiento al Centro Tutorial, sin adivinar.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 3 · PROPUESTA DE VALOR ============ -->
+    <section class="section section--white value" id="propuesta">
+      <div class="container">
+        <div class="section-head section-head--split reveal">
+          <div>
+            <span class="kicker">02 · Propuesta de valor</span>
+            <h2 class="section-title">Planificar el viaje, <span class="text-gradient">ganar futuro</span></h2>
+          </div>
+          <p class="lead">La propuesta central es simple y poderosa: planificar el viaje con anticipación para reducir tiempos de espera, costos y ausentismo escolar.</p>
+        </div>
+
+        <div class="value-grid">
+          <div class="donut-wrap reveal" style="--delay:.05s">
+            <span class="donut-halo" aria-hidden="true"></span>
+            <svg class="donut" viewBox="0 0 320 320" role="img" aria-label="Anillo de impacto: menos tiempo, menos costo y más permanencia">
+              <circle class="donut-track" cx="160" cy="160" r="132" />
+              <circle class="donut-seg donut-seg--blue" cx="160" cy="160" r="132" pathLength="100" stroke-dasharray="42 58" stroke-dashoffset="0" />
+              <circle class="donut-seg donut-seg--green" cx="160" cy="160" r="132" pathLength="100" stroke-dasharray="32 68" stroke-dashoffset="-44" />
+              <circle class="donut-seg donut-seg--orange" cx="160" cy="160" r="132" pathLength="100" stroke-dasharray="20 80" stroke-dashoffset="-78" />
+            </svg>
+            <div class="donut-center">
+              <span>Una sola app</span>
+              <strong>Planifica · Viaja · Llega</strong>
+              <small>con anticipación</small>
+            </div>
+            <span class="orbit-chip orbit-chip--1"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg> Menos espera</span>
+            <span class="orbit-chip orbit-chip--2"><svg class="icon" aria-hidden="true"><use href="#i-banknote"></use></svg> Menos costo</span>
+            <span class="orbit-chip orbit-chip--3"><svg class="icon" aria-hidden="true"><use href="#i-graduation"></use></svg> Más asistencia</span>
+          </div>
+
+          <div class="value-copy">
+            <div class="value-quote reveal" style="--delay:.1s">
+              <span class="quote-badge"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"></use></svg> La propuesta</span>
+              <p>Planificar el viaje con anticipación para <strong>reducir tiempos de espera, costos y ausentismo escolar.</strong></p>
+            </div>
+
+            <div class="persona persona--primary reveal" style="--delay:.15s">
+              <span class="persona-icon persona-icon--orange">
+                <svg class="icon" aria-hidden="true"><use href="#i-graduation"></use></svg>
+              </span>
+              <div>
+                <span class="persona-label">Usuarios principales</span>
+                <h3>Estudiantes universitarios</h3>
+                <p>De corregimientos y sectores alejados de Magangué que viajan a diario al Centro Tutorial.</p>
+              </div>
+            </div>
+
+            <div class="persona-group reveal" style="--delay:.2s">
+              <span class="persona-label">Usuarios secundarios</span>
+              <div class="persona-grid">
+                <div class="persona-chip"><span><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg></span> Docentes</div>
+                <div class="persona-chip"><span><svg class="icon" aria-hidden="true"><use href="#i-building"></use></svg></span> Personal administrativo</div>
+                <div class="persona-chip"><span><svg class="icon" aria-hidden="true"><use href="#i-steering"></use></svg></span> Conductores</div>
+                <div class="persona-chip"><span><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg></span> Entidades municipales y universitarias</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 4 · EXPERIENCIA DIGITAL ============ -->
+    <section class="section section--tint experience" id="experiencia">
+      <span class="section-watermark" aria-hidden="true">03</span>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">03 · Experiencia digital</span>
+          <h2 class="section-title">Cuatro pantallas, <span class="text-gradient">una ruta clara</span></h2>
+          <p class="lead">Una app pensada para el contexto rural: pocos pasos, información concreta y alertas que sí importan. Además, un panel web para quienes operan y reportan el servicio.</p>
+        </div>
+
+        <div class="experience-grid">
+          <div class="phones">
+            <div class="phone-item reveal" style="--delay:.05s">
+              <div class="phone">
+                <div class="phone-screen screen-home">
+                  <div class="statusbar"><span>9:41</span><span class="status-icons"><i></i><i></i><i></i></span></div>
+                  <div class="app-top">
+                    <span class="mini-brand"><span class="mini-mark"><svg class="icon" aria-hidden="true"><use href="#i-bus"></use></svg></span>RutaU</span>
+                    <span class="mini-avatar">A</span>
+                  </div>
+                  <div class="screen-body">
+                    <p class="screen-kicker">Buenos días</p>
+                    <h4 class="screen-title">¿A dónde vas hoy?</h4>
+                    <div class="select-field"><span>Corregimiento</span><strong>San Antonio</strong><svg class="icon" aria-hidden="true"><use href="#i-chevron-down"></use></svg></div>
+                    <div class="select-field"><span>Sede</span><strong>Centro Tutorial UC</strong><svg class="icon" aria-hidden="true"><use href="#i-chevron-down"></use></svg></div>
+                    <button class="mini-btn" type="button" tabindex="-1">Buscar rutas <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button>
+                    <div class="mini-route">
+                      <span class="mini-route-dot"></span>
+                      <div><strong>Ruta 01 · Rural</strong><span>6:10 a. m. · 12 min</span></div>
+                      <span class="mini-status">Activa</span>
+                    </div>
+                    <div class="mini-route">
+                      <span class="mini-route-dot mini-route-dot--orange"></span>
+                      <div><strong>Ruta 02 · Rural</strong><span>7:00 a. m. · 18 min</span></div>
+                      <span class="mini-status mini-status--muted">Llena</span>
+                    </div>
+                  </div>
+                  <div class="mini-nav">
+                    <span class="active"><svg class="icon"><use href="#i-home"></use></svg>Inicio</span>
+                    <span><svg class="icon"><use href="#i-map"></use></svg>Mapa</span>
+                    <span><svg class="icon"><use href="#i-calendar"></use></svg>Horarios</span>
+                    <span><svg class="icon"><use href="#i-bell"></use></svg>Alertas</span>
+                  </div>
+                </div>
+              </div>
+              <div class="phone-label"><span class="phone-num">01</span><div><strong>Inicio</strong><span>Selección de corregimiento y sede</span></div></div>
+            </div>
+
+            <div class="phone-item reveal" style="--delay:.12s">
+              <div class="phone">
+                <div class="phone-screen screen-map">
+                  <div class="statusbar"><span>9:41</span><span class="status-icons"><i></i><i></i><i></i></span></div>
+                  <div class="app-top">
+                    <span class="mini-brand"><span class="mini-mark"><svg class="icon" aria-hidden="true"><use href="#i-bus"></use></svg></span>RutaU</span>
+                    <span class="mini-pill">Ruta 01</span>
+                  </div>
+                  <div class="mini-map">
+                    <svg viewBox="0 0 220 300" role="img" aria-label="Mapa de ruta con origen, paradas y destino">
+                      <rect width="220" height="300" fill="#EAF7F0" />
+                      <path d="M0 70h220M0 150h220M0 230h220M50 0v300M120 0v300M180 0v300" stroke="#FFFFFF" stroke-width="12" opacity="0.85" />
+                      <path d="M0 70h220M0 150h220M0 230h220M50 0v300M120 0v300M180 0v300" stroke="#D6EDE2" stroke-width="1.5" stroke-dasharray="4 6" />
+                      <path d="M32 260c30-10 28-50 58-62s12-62 48-70 8-50 44-52" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" />
+                      <path d="M32 260c30-10 28-50 58-62s12-62 48-70 8-50 44-52" fill="none" stroke="#10B981" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 8" />
+                      <circle cx="32" cy="260" r="8" fill="#F97316" stroke="#FFFFFF" stroke-width="3" />
+                      <circle cx="90" cy="198" r="5" fill="#004B87" stroke="#FFFFFF" stroke-width="3" />
+                      <circle cx="138" cy="126" r="5" fill="#004B87" stroke="#FFFFFF" stroke-width="3" />
+                      <circle cx="182" cy="76" r="9" fill="#004B87" stroke="#FFFFFF" stroke-width="3" />
+                      <path d="M176 70h12v8h-12zM175 70l7-5 7 5" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linejoin="round" />
+                      <g transform="translate(52,212)">
+                        <rect x="-20" y="-12" width="40" height="24" rx="7" fill="#004B87" />
+                        <rect x="-16" y="-8" width="31" height="9" rx="3" fill="#DDF3FF" />
+                        <circle cx="-10" cy="12" r="4" fill="#0B1F33" /><circle cx="11" cy="12" r="4" fill="#0B1F33" />
+                      </g>
+                    </svg>
+                    <span class="map-live"><span class="pulse-dot"></span> En ruta</span>
+                    <span class="map-legend">8 paradas · 42 min</span>
+                  </div>
+                  <div class="map-sheet">
+                    <strong>San Antonio → Campus UC</strong>
+                    <span>Salida 6:10 a. m. · Llegada 6:52 a. m.</span>
+                    <button class="mini-btn" type="button" tabindex="-1">Ver horarios <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button>
+                  </div>
+                  <div class="mini-nav">
+                    <span><svg class="icon"><use href="#i-home"></use></svg>Inicio</span>
+                    <span class="active"><svg class="icon"><use href="#i-map"></use></svg>Mapa</span>
+                    <span><svg class="icon"><use href="#i-calendar"></use></svg>Horarios</span>
+                    <span><svg class="icon"><use href="#i-bell"></use></svg>Alertas</span>
+                  </div>
+                </div>
+              </div>
+              <div class="phone-label"><span class="phone-num">02</span><div><strong>Mapa de rutas</strong><span>Origen, paradas y destino</span></div></div>
+            </div>
+
+            <div class="phone-item reveal" style="--delay:.19s">
+              <div class="phone">
+                <div class="phone-screen screen-schedule">
+                  <div class="statusbar"><span>9:41</span><span class="status-icons"><i></i><i></i><i></i></span></div>
+                  <div class="app-top">
+                    <span class="mini-brand"><span class="mini-mark"><svg class="icon" aria-hidden="true"><use href="#i-bus"></use></svg></span>RutaU</span>
+                    <span class="mini-pill mini-pill--orange">Hoy</span>
+                  </div>
+                  <div class="screen-body">
+                    <p class="screen-kicker">Lunes · 30 oct</p>
+                    <h4 class="screen-title">Horarios</h4>
+                    <div class="day-pills"><span class="active">Hoy</span><span>Mañana</span><span>Semana</span></div>
+                    <div class="schedule">
+                      <div class="schedule-row schedule-row--active">
+                        <span class="schedule-time">6:10<small>a. m.</small></span>
+                        <div class="schedule-info"><strong>Salida</strong><span>San Antonio</span></div>
+                        <span class="schedule-tag">Ida</span>
+                      </div>
+                      <div class="schedule-row">
+                        <span class="schedule-time">6:52<small>a. m.</small></span>
+                        <div class="schedule-info"><strong>Llegada</strong><span>Campus UC</span></div>
+                      </div>
+                      <div class="schedule-row">
+                        <span class="schedule-time">5:30<small>p. m.</small></span>
+                        <div class="schedule-info"><strong>Regreso</strong><span>Campus UC</span></div>
+                        <span class="schedule-tag schedule-tag--green">Vuelta</span>
+                      </div>
+                      <div class="schedule-row">
+                        <span class="schedule-time">6:15<small>p. m.</small></span>
+                        <div class="schedule-info"><strong>Llegada</strong><span>San Antonio</span></div>
+                      </div>
+                    </div>
+                    <div class="mini-note"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg> Tiempos estimados de salida, llegada y regreso.</div>
+                  </div>
+                  <div class="mini-nav">
+                    <span><svg class="icon"><use href="#i-home"></use></svg>Inicio</span>
+                    <span><svg class="icon"><use href="#i-map"></use></svg>Mapa</span>
+                    <span class="active"><svg class="icon"><use href="#i-calendar"></use></svg>Horarios</span>
+                    <span><svg class="icon"><use href="#i-bell"></use></svg>Alertas</span>
+                  </div>
+                </div>
+              </div>
+              <div class="phone-label"><span class="phone-num">03</span><div><strong>Horarios</strong><span>Salida, llegada y regreso</span></div></div>
+            </div>
+
+            <div class="phone-item reveal" style="--delay:.26s">
+              <div class="phone">
+                <div class="phone-screen screen-alerts">
+                  <div class="statusbar"><span>9:41</span><span class="status-icons"><i></i><i></i><i></i></span></div>
+                  <div class="app-top">
+                    <span class="mini-brand"><span class="mini-mark"><svg class="icon" aria-hidden="true"><use href="#i-bus"></use></svg></span>RutaU</span>
+                    <span class="mini-avatar mini-avatar--alert"><svg class="icon" aria-hidden="true"><use href="#i-bell"></use></svg></span>
+                  </div>
+                  <div class="screen-body">
+                    <p class="screen-kicker">Centro de avisos</p>
+                    <h4 class="screen-title">Alertas <span class="alert-count">2 nuevas</span></h4>
+                    <div class="alert-card alert-card--orange">
+                      <span class="alert-ico"><svg class="icon" aria-hidden="true"><use href="#i-clock-alert"></use></svg></span>
+                      <div><strong>Cambio de horario</strong><p>La Ruta 01 saldrá 10 minutos más tarde.</p><span>Hace 5 min</span></div>
+                    </div>
+                    <div class="alert-card alert-card--blue">
+                      <span class="alert-ico"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span>
+                      <div><strong>Nueva parada</strong><p>Se agregó un punto de recogida en el corregimiento.</p><span>Hace 22 min</span></div>
+                    </div>
+                    <div class="alert-card alert-card--green">
+                      <span class="alert-ico"><svg class="icon" aria-hidden="true"><use href="#i-check-circle"></use></svg></span>
+                      <div><strong>Servicio activo</strong><p>La ruta de la tarde está confirmada.</p><span>Hace 1 h</span></div>
+                    </div>
+                    <div class="alert-toggle"><span>Notificaciones</span><span class="toggle"><i></i></span></div>
+                  </div>
+                  <div class="mini-nav">
+                    <span><svg class="icon"><use href="#i-home"></use></svg>Inicio</span>
+                    <span><svg class="icon"><use href="#i-map"></use></svg>Mapa</span>
+                    <span><svg class="icon"><use href="#i-calendar"></use></svg>Horarios</span>
+                    <span class="active"><svg class="icon"><use href="#i-bell"></use></svg>Alertas</span>
+                  </div>
+                </div>
+              </div>
+              <div class="phone-label"><span class="phone-num">04</span><div><strong>Alertas</strong><span>Cambios, retrasos y suspensión</span></div></div>
+            </div>
+          </div>
+
+          <aside class="web-panel reveal" style="--delay:.2s" aria-label="Panel de control en tiempo real">
+            <span class="web-panel-tag"><svg class="icon" aria-hidden="true"><use href="#i-grid"></use></svg> Módulo web</span>
+            <h3>Panel de control en tiempo real</h3>
+            <p>Actualización de datos por parte de entidades autorizadas y reportes directos de la comunidad.</p>
+
+            <div class="dash" role="img" aria-label="Vista de ejemplo del panel de control: rutas, paradas, alertas y reportes">
+              <div class="dash-head">
+                <span class="dash-brand">RutaU <em>Admin</em></span>
+                <span class="dash-live"><span class="pulse-dot"></span> En vivo</span>
+              </div>
+              <div class="dash-stats">
+                <div><strong>12</strong><span>Rutas</span></div>
+                <div><strong>28</strong><span>Paradas</span></div>
+                <div><strong>03</strong><span>Alertas</span></div>
+              </div>
+              <div class="dash-chart">
+                <div class="chart-top"><span>Viajes por franja</span><span>Hoy</span></div>
+                <div class="chart-bars" aria-hidden="true">
+                  <span style="--h:38%"></span><span style="--h:62%"></span><span style="--h:48%"></span>
+                  <span style="--h:86%"></span><span style="--h:70%"></span><span style="--h:94%"></span>
+                  <span style="--h:58%"></span><span style="--h:76%"></span><span style="--h:42%"></span>
+                </div>
+              </div>
+              <div class="dash-reports">
+                <div class="dash-report"><span class="report-dot report-dot--orange"></span><div><strong>Reporte comunitario</strong><span>Nueva parada sugerida</span></div><time>2 min</time></div>
+                <div class="dash-report"><span class="report-dot report-dot--green"></span><div><strong>Ruta actualizada</strong><span>Horario de la tarde</span></div><time>14 min</time></div>
+              </div>
+              <span class="dash-note">Vista de ejemplo</span>
+            </div>
+
+            <ul class="web-checks">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Rutas y paradas siempre actualizadas</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Horarios, novedades y alertas</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Reportes directos de la comunidad</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 5 · HOJA DE RUTA ============ -->
+    <section class="section section--dark roadmap" id="ruta">
+      <div class="roadmap-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head section-head--dark reveal">
+          <span class="kicker kicker--light">04 · Hoja de ruta</span>
+          <h2 class="section-title">Siete hitos para <span class="text-gradient-light">poner la ruta en marcha</span></h2>
+          <p class="lead">Un camino de implementación por fases: de escuchar a las comunidades hasta escalar con GPS y analítica de datos.</p>
+        </div>
+
+        <div class="timeline-shell reveal" style="--delay:.1s">
+          <div class="timeline-top">
+            <p class="timeline-hint">
+              <svg class="icon" aria-hidden="true"><use href="#i-route"></use></svg>
+              Desliza o usa las flechas para recorrer los 7 hitos
+            </p>
+            <div class="timeline-nav">
+              <button class="tl-btn" id="tlPrev" type="button" aria-label="Hito anterior" disabled>
+                <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"></use></svg>
+              </button>
+              <span class="tl-counter" id="tlCounter" aria-live="polite">01 / 07</span>
+              <button class="tl-btn" id="tlNext" type="button" aria-label="Hito siguiente">
+                <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
+              </button>
+            </div>
+          </div>
+
+          <section class="timeline-scroll" id="timelineScroll" tabindex="0" aria-label="Hoja de ruta de implementación, 7 hitos">
+            <div class="timeline-track">
+              <div class="timeline-line" aria-hidden="true">
+                <span class="timeline-fill" id="tlFill"></span>
+                <span class="timeline-bus" id="tlBus"><svg class="icon"><use href="#i-bus"></use></svg></span>
+              </div>
+
+              <ol class="milestones">
+                <li class="milestone is-active" data-step="1">
+                  <span class="milestone-node">01</span>
+                  <article class="milestone-card">
+                    <div class="milestone-head">
+                      <span class="milestone-ico"><svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg></span>
+                      <span class="milestone-phase">Fase 01</span>
+                    </div>
+                    <h3>Investigación</h3>
+                    <p>Encuestas de movilidad en corregimientos para entender horarios, recorridos y necesidades reales.</p>
+                  </article>
+                </li>
+                <li class="milestone" data-step="2">
+                  <span class="milestone-node">02</span>
+                  <article class="milestone-card">
+                    <div class="milestone-head">
+                      <span class="milestone-ico"><svg class="icon" aria-hidden="true"><use href="#i-pen"></use></svg></span>
+                      <span class="milestone-phase">Fase 02</span>
+                    </div>
+                    <h3>Diseño</h3>
+                    <p>Interfaz UI/UX adaptada al entorno local, con lenguaje claro y navegación sencilla.</p>
+                  </article>
+                </li>
+                <li class="milestone" data-step="3">
+                  <span class="milestone-node">03</span>
+                  <article class="milestone-card">
+                    <div class="milestone-head">
+                      <span class="milestone-ico"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg></span>
+                      <span class="milestone-phase">Fase 03</span>
+                    </div>
+                    <h3>Prototipo</h3>
+                    <p>MVP (Producto Mínimo Viable) funcional para validar la experiencia con usuarios reales.</p>
+                  </article>
+                </li>
+                <li class="milestone" data-step="4">
+                  <span class="milestone-node">04</span>
+                  <article class="milestone-card">
+                    <div class="milestone-head">
+                      <span class="milestone-ico"><svg class="icon" aria-hidden="true"><use href="#i-flag"></use></svg></span>
+                      <span class="milestone-phase">Fase 04</span>
+                    </div>
+                    <h3>Prueba piloto</h3>
+                    <p>Validación en rutas seleccionadas con estudiantes, transportadores y comunidad.</p>
+                  </article>
+                </li>
+                <li class="milestone" data-step="5">
+                  <span class="milestone-node">05</span>
+                  <article class="milestone-card">
+                    <div class="milestone-head">
+                      <span class="milestone-ico"><svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg></span>
+                      <span class="milestone-phase">Fase 05</span>
+                    </div>
+                    <h3>Alianzas</h3>
+                    <p>Presentación de resultados a entidades públicas y transportadores para sumar aliados.</p>
+                  </article>
+                </li>
+                <li class="milestone" data-step="6">
+                  <span class="milestone-node">06</span>
+                  <article class="milestone-card">
+                    <div class="milestone-head">
+                      <span class="milestone-ico"><svg class="icon" aria-hidden="true"><use href="#i-rocket"></use></svg></span>
+                      <span class="milestone-phase">Fase 06</span>
+                    </div>
+                    <h3>Implementación</h3>
+                    <p>Despliegue masivo y ampliación progresiva a más rutas y corregimientos.</p>
+                  </article>
+                </li>
+                <li class="milestone" data-step="7">
+                  <span class="milestone-node">07</span>
+                  <article class="milestone-card">
+                    <div class="milestone-head">
+                      <span class="milestone-ico"><svg class="icon" aria-hidden="true"><use href="#i-chart"></use></svg></span>
+                      <span class="milestone-phase">Fase 07</span>
+                    </div>
+                    <h3>Crecimiento</h3>
+                    <p>Integración de rastreo GPS y analítica de datos para mejorar cada recorrido.</p>
+                  </article>
+                </li>
+              </ol>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOQUE 6 · IMPACTO ============ -->
+    <section class="section section--white impact" id="impacto">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">05 · Modelo social e impacto</span>
+          <h2 class="section-title">Una ruta sostenible, <span class="text-gradient">un impacto multicultural</span></h2>
+          <p class="lead">RutaU se financia mediante convenios institucionales y patrocinios locales. El estudiante no paga: la comunidad y el territorio ganan.</p>
+        </div>
+
+        <div class="impact-grid">
+          <article class="sustain-card reveal" style="--delay:.05s">
+            <span class="sustain-pattern" aria-hidden="true"></span>
+            <span class="pill pill--glass"><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg> Modelo híbrido social</span>
+            <h3><span>100%</span> gratuito para el estudiante</h3>
+            <p>Financiación mediante convenios institucionales y patrocinios locales que hacen sostenible la movilidad universitaria rural.</p>
+
+            <div class="funding">
+              <span><svg class="icon" aria-hidden="true"><use href="#i-building"></use></svg> Alcaldía de Magangué</span>
+              <span><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg> Gobernación de Bolívar</span>
+              <span><svg class="icon" aria-hidden="true"><use href="#i-graduation"></use></svg> Universidad de Cartagena</span>
+              <span><svg class="icon" aria-hidden="true"><use href="#i-banknote"></use></svg> Patrocinios locales</span>
+            </div>
+
+            <div class="sustain-foot">
+              <span class="sustain-foot-ico"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg></span>
+              <p>Universidad, comunidad y sector transporte construyen juntos el sistema.</p>
+            </div>
+          </article>
+
+          <div class="impact-areas">
+            <article class="impact-card impact-card--green reveal" style="--delay:.1s">
+              <span class="impact-ico"><svg class="icon" aria-hidden="true"><use href="#i-graduation"></use></svg></span>
+              <div>
+                <span class="impact-kicker">Social y educativo</span>
+                <h3>Más asistencia, más permanencia</h3>
+                <p>Promueve la asistencia y permanencia académica al reducir la incertidumbre del viaje diario.</p>
+              </div>
+            </article>
+
+            <article class="impact-card impact-card--orange reveal" style="--delay:.16s">
+              <span class="impact-ico"><svg class="icon" aria-hidden="true"><use href="#i-banknote"></use></svg></span>
+              <div>
+                <span class="impact-kicker">Económico</span>
+                <h3>Menos gasto para las familias</h3>
+                <p>Optimiza los gastos de transporte en las familias rurales al planear mejor cada recorrido.</p>
+              </div>
+            </article>
+
+            <article class="impact-card impact-card--blue reveal" style="--delay:.22s">
+              <span class="impact-ico"><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg></span>
+              <div>
+                <span class="impact-kicker">Tecnológico e institucional</span>
+                <h3>Más articulación territorial</h3>
+                <p>Fortalece el trabajo conjunto entre universidad, comunidad y sector transporte con datos compartidos.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ BLOQUE 7 · CIERRE ============ -->
+  <footer class="footer" id="cierre">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-quote reveal">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <blockquote>Un estudiante que sabe a qué hora pasa su buseta es un estudiante que llega. <span>Y un estudiante que llega es un estudiante que se gradúa.</span></blockquote>
+        <p class="quote-credit">RutaU Magangué · Cierre inspiracional</p>
+      </div>
+
+      <div class="institutions reveal" style="--delay:.1s" role="group" aria-label="Instituciones del ecosistema RutaU">
+        <div class="inst-card">
+          <span class="inst-crest">
+            <svg viewBox="0 0 40 46" aria-hidden="true">
+              <path d="M20 2 37 8v14c0 10.5-7.6 18-17 22C10.6 40 3 32.5 3 22V8L20 2Z" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M12 18h16M12 23h16M20 12v22" stroke="currentColor" stroke-width="1.6" opacity=".8" />
+              <circle cx="20" cy="23" r="3.4" fill="currentColor" opacity=".9" />
+            </svg>
+          </span>
+          <div><strong>Universidad de Cartagena</strong><span>Institución aliada</span></div>
+        </div>
+        <div class="inst-card">
+          <span class="inst-crest">
+            <svg viewBox="0 0 40 46" aria-hidden="true">
+              <path d="M20 2 37 8v14c0 10.5-7.6 18-17 22C10.6 40 3 32.5 3 22V8L20 2Z" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M13 33V18l7-4 7 4v15" fill="none" stroke="currentColor" stroke-width="1.7" />
+              <path d="M17 33v-8h6v8M10 33h20" fill="none" stroke="currentColor" stroke-width="1.7" />
+            </svg>
+          </span>
+          <div><strong>Centro Tutorial Magangué</strong><span>Punto de encuentro</span></div>
+        </div>
+        <div class="inst-card">
+          <span class="inst-crest">
+            <svg viewBox="0 0 40 46" aria-hidden="true">
+              <path d="M20 2 37 8v14c0 10.5-7.6 18-17 22C10.6 40 3 32.5 3 22V8L20 2Z" fill="none" stroke="currentColor" stroke-width="2" />
+              <circle cx="15" cy="20" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7" />
+              <circle cx="26" cy="20" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7" />
+              <path d="M9 33c0-4 2.7-7 6-7s6 3 6 7M20 33c0-4 2.7-7 6-7s6 3 6 7" fill="none" stroke="currentColor" stroke-width="1.7" />
+            </svg>
+          </span>
+          <div><strong>CIPA ADyEM</strong><span>Administración y Emprendimiento</span></div>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand brand--footer" href="#hero" aria-label="RutaU Magangué, volver al inicio">
+            <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-bus"></use></svg></span>
+            <span class="brand-text">RutaU<small>Magangué</small></span>
+          </a>
+          <p>Conectando estudiantes, comunidades y oportunidades. Movilidad universitaria rural con tecnología real.</p>
+          <div class="footer-badges">
+            <span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg> Magangué, Bolívar</span>
+            <span><svg class="icon" aria-hidden="true"><use href="#i-wifi"></use></svg> Proyecto digital</span>
+          </div>
+        </div>
+
+        <nav class="footer-links" aria-label="Enlaces del proyecto">
+          <span class="footer-title">Explorar</span>
+          <a href="#desafio">El desafío rural</a>
+          <a href="#propuesta">Propuesta de valor</a>
+          <a href="#experiencia">La experiencia digital</a>
+          <a href="#ruta">Hoja de ruta</a>
+          <a href="#impacto">Modelo e impacto</a>
+        </nav>
+
+        <div class="footer-credits">
+          <span class="footer-title">Créditos</span>
+          <p>Universidad de Cartagena — Administración y Emprendimiento.<br>Semestre 8 · CIPA ADyEM.</p>
+          <p class="footer-note">Prototipo académico de movilidad universitaria rural.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> RutaU Magangué. Todos los derechos reservados.</span>
+        <span>Hecho con propósito en Bolívar, Colombia.</span>
+        <a href="#hero">Volver arriba <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Volver arriba">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
+  </button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

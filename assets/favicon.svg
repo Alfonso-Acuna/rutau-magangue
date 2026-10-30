@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="RutaU">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A6DA9"/>
+      <stop offset="1" stop-color="#004B87"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="18" y1="30" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34D399"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <path d="M15 45c0-7 5-9 10-9h8c4 0 6-2 6-5s-2-4-5-4h-7" fill="none" stroke="#7DD3FC" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+  <circle cx="16" cy="45" r="3.2" fill="#F97316"/>
+  <path d="M27 20h15a6 6 0 0 1 6 6v13a4 4 0 0 1-4 4H25a4 4 0 0 1-4-4V26a6 6 0 0 1 6-6Z" fill="url(#accent)"/>
+  <path d="M24 28h18M24 36h18" stroke="#004B87" stroke-width="2.6" stroke-linecap="round" opacity=".85"/>
+  <circle cx="28" cy="43" r="2.6" fill="#004B87"/>
+  <circle cx="41" cy="43" r="2.6" fill="#004B87"/>
+</svg>
