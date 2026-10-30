@@ -229,23 +229,22 @@
 
     let timelineTicking = false;
 
+    const getMaxScroll = () => Math.max(0, timeline.scrollWidth - timeline.clientWidth);
+    const lastMilestoneIndex = Math.max(1, milestones.length - 1);
+
     const updateTimeline = () => {
-      const maxScroll = timeline.scrollWidth - timeline.clientWidth;
+      const maxScroll = getMaxScroll();
       const progress = maxScroll > 0 ? timeline.scrollLeft / maxScroll : 0;
       const visualProgress = 6 + progress * 94;
+      const activeIndex = maxScroll > 0
+        ? Math.min(milestones.length, Math.round(progress * lastMilestoneIndex) + 1)
+        : 1;
 
       if (fill) fill.style.width = `${visualProgress}%`;
       if (bus) bus.style.left = `${visualProgress}%`;
 
-      const probe = timeline.scrollLeft + 42;
-      let activeIndex = 1;
-
-      milestones.forEach((milestone, index) => {
-        if (probe >= milestone.offsetLeft) activeIndex = index + 1;
-      });
-
       if (counter) {
-        counter.textContent = `${String(activeIndex).padStart(2, "0")} / 07`;
+        counter.textContent = `${String(activeIndex).padStart(2, "0")} / ${String(milestones.length).padStart(2, "0")}`;
       }
 
       milestones.forEach((milestone, index) => {
@@ -269,17 +268,14 @@
       }
     };
 
-    const scrollStep = () => {
-      const first = milestones[0];
-      if (!first) return 278;
-      const styles = window.getComputedStyle(timeline.querySelector(".milestones"));
-      const gap = Number.parseFloat(styles.columnGap || styles.gap || "20") || 20;
-      return first.getBoundingClientRect().width + gap;
-    };
-
     const moveTimeline = (direction) => {
-      timeline.scrollBy({
-        left: direction * scrollStep(),
+      const maxScroll = getMaxScroll();
+      if (maxScroll <= 0) return;
+      const step = maxScroll / lastMilestoneIndex;
+      const target = Math.min(maxScroll, Math.max(0, timeline.scrollLeft + direction * step));
+
+      timeline.scrollTo({
+        left: target,
         behavior: scrollBehavior(),
       });
     };
@@ -302,7 +298,7 @@
         timeline.scrollTo({ left: 0, behavior: scrollBehavior() });
       } else if (event.key === "End") {
         event.preventDefault();
-        timeline.scrollTo({ left: timeline.scrollWidth, behavior: scrollBehavior() });
+        timeline.scrollTo({ left: getMaxScroll(), behavior: scrollBehavior() });
       }
     });
 
@@ -345,10 +341,11 @@
     timeline.addEventListener("pointerup", endDrag);
     timeline.addEventListener("pointercancel", endDrag);
 
-    milestones.forEach((milestone) => {
+    milestones.forEach((milestone, index) => {
       milestone.addEventListener("click", () => {
         if (hasDragged) return;
-        const left = milestone.offsetLeft - 28;
+        const maxScroll = getMaxScroll();
+        const left = (maxScroll * index) / lastMilestoneIndex;
         timeline.scrollTo({ left, behavior: scrollBehavior() });
       });
     });

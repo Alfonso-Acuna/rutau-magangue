@@ -2822,8 +2822,6 @@ button:focus-visible,
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0 28px 16px;
-  scroll-snap-type: x proximity;
-  scroll-padding-left: 28px;
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
@@ -2836,7 +2834,6 @@ button:focus-visible,
 
 .timeline-scroll.is-dragging {
   cursor: grabbing;
-  scroll-snap-type: none;
   user-select: none;
 }
 
@@ -2902,7 +2899,6 @@ button:focus-visible,
   position: relative;
   flex: 0 0 258px;
   width: 258px;
-  scroll-snap-align: start;
 }
 
 .milestone:nth-child(3n + 1) {
